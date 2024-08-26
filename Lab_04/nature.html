@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <script> 
+        function toggleTheme() { 
+            var theme = document.getElementsByTagName('link')[0]; 
+            if (theme.getAttribute('href') == 'styles_light.css') { 
+                theme.setAttribute('href', 'styles_dark.css'); 
+            } else { 
+                theme.setAttribute('href', 'styles_light.css'); 
+            } 
+        }
+    </script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natureza</title>
+    <link rel="stylesheet" href="styles_light.css">
+</head>
+<body>
+    <header>
+        <h1>Natureza</h1>
+        <h2></h2><button onclick="toggleTheme()">Mudar Tema</button></h2>
+        <nav>
+            <ul>
+                <li><a href="nature.html">Home</a></li>
+                <li><a href="tech.html">Tecnologia</a></li>
+                <li><a href="space.html">Espaço</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <img src="assets/nature/nature1.avif">
+        <img src="assets/nature/nature2.avif">
+        <img src="assets/nature/nature3.avif">
+    </main>
+    <footer>&copy; 2024 Tema Natureza. Todos os direitos reservados</footer>
+
+</body>
+</html>

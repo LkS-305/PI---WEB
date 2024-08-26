@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2</title>
+    <style>
+        .destacado {
+            color: blue;
+            font-weight: bold;
+        }
+
+        .container {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lab 2 -> PI: Desenvolvimento Web</h1>
+
+    <h2>Listas</h2>
+    <p>Lista de Compras</p>
+    <ul>
+        <li>Pão</li>
+        <li>Queijo</li>
+        <li>Manteiga</li>
+    </ul>
+    <p>Lista de Tarefas</p>
+    <ol type="I">
+        <li>Cálculo 1</li>
+        <li>Organização de Sistemas</li>
+        <li>Desenvolvimento Web</li>
+    </ol>
+    <h3>Formulário</h3>
+
+    <p>Qual o seu nome?</p>
+    <form action="/submit" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br><br>
+        <label for="escolha">Qual sua fruta favorita?</label>
+        <select id="escolha" name="escolha" required>
+            <option value="">Escolha...</option>
+            <option value="e1">Maçã</option>
+            <option value="e2">Banana</option>
+            <option value="e3">Manga</option>
+            <option value="e4">Abacaxi</option>
+        </select>
+        <br><br>
+        <label for="comentario">Comentários Adicionais</label>
+        <br>
+        <textarea></textarea>
+        <br><br>
+        <input type="submit">
+    </form>
+    <br><br>
+    <h4>Elemento Gráfico</h4>
+    <p>Bloco colorido</p>
+
+    <canvas id="bloco" width="300" height="300" style="border:1px solid black">
+        <script>
+            var c = document.getElementById("bloco");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(20, 20, 150, 75);
+        </script>
+    </canvas>
+    <br><br>
+    <p>Elemento SVG</p>
+    <svg id="svg" width="100" height="100" style="border:1px rgb(255, 221, 0)">
+        <circle cx="50" cy="50" r="25" fill="blue" stroke="yellow" stroke-width="2" />
+    </svg>
+    <h5>Vídeo</h5>
+    <p>Vídeo de Exemplo</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/xdHnJITxWY4?si=YYC2HzMTHD0rx2bZ"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <h6>Bibliografia</h6>
+    <p>https://www.youtube.com/embed/xdHnJITxWY4?si=YYC2HzMTHD0rx2bZ</p>
+
+</body>
+
+</html>
