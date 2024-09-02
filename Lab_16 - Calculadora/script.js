@@ -1,4 +1,6 @@
-var operacaoAtual;
+let operacaoAtual = '';
+let operador = '';
+let resultado = 0;
 
 function adicionarNumero(numero){
     operacaoAtual += numero;
