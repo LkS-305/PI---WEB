@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 64</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Página Inicial</h1>
+    <h1>Instruções de Acesso</h1>
+    <div id="question-container">
+        <div class="instruction">
+            <label>Para acessar a página inicial:</label>
+            <code>curl http://localhost:3000/</code>
+        </div>
+        <div class="instruction">
+            <label>Para acessar a página sobre:</label>
+            <code>curl http://localhost:3000/about</code>
+        </div>
+        <div class="instruction">
+            <label>Para acessar a página de API:</label>
+            <code>curl http://localhost:3000/api</code>
+        </div>
+        <div class="instruction">
+            <label>Para acessar a página de erro, digite qualquer outra rota:</label>
+            <code>curl http://localhost:3000/err</code>
+        </div>
+        <div class="instruction">
+            <label>Para testar o POST, abra um terminal e digite:</label>
+            <code>curl -X POST http://127.0.0.1:3000/upload -d "fileData=simulacao"</code>
+        </div>
+    </div>
+</body>
+</html>
