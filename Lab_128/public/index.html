@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Formulário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>PI: Desenvolvimento Web - Lab 128</h1>
+    </header>
+
+    <div class="container">
+        <h1>Envie um Formulário</h1>
+        <form id="emailForm">
+            <label for="to">Destinatário:</label>
+            <input type="email" id="to" name="to" required>
+            <button type="button" id="sendVerificationCode">Enviar Código de Verificação</button>
+
+            <label for="subject">Assunto:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="verificationCode">Código de Verificação:</label>
+            <input type="text" id="verificationCode" name="verificationCode" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <p id="response"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 PI: Desenvolvimento Web - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const to = document.getElementById('to').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const verificationCode = document.getElementById('verificationCode').value;
+
+            fetch('/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    to: to,
+                    subject: subject,
+                    message: message,
+                    verificationCode: verificationCode
+                }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('response').textContent = data;
+                document.getElementById('to').value = '';
+                document.getElementById('subject').value = '';
+                document.getElementById('message').value = '';
+                document.getElementById('verificationCode').value = '';
+            })
+            .catch(error => {
+                document.getElementById('response').textContent = 'Erro ao enviar e-mail: ' + error;
+            });
+        });
+
+        document.getElementById('sendVerificationCode').addEventListener('click', function () {
+            const email = document.getElementById('to').value;
+            fetch('/send-verification-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email }),
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('response').textContent = data;
+            })
+            .catch(error => {
+                document.getElementById('response').textContent = 'Erro ao enviar código de verificação: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
